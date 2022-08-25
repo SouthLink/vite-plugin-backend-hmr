@@ -19,10 +19,10 @@
     "build": "tsup src/index.ts --dts --format cjs,esm",
     "example:react": "cd examples/react && pnpm run dev"
   },
-  "homepage": "https://github.com/SouthLink/vite-react-backend-hmr#readme",
+  "homepage": "https://github.com/SouthLink/vite-plugin-backend-hmr#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SouthLink/vite-react-backend-hmr.git"
+    "url": "git+https://github.com/SouthLink/vite-plugin-backend-hmr.git"
   },
   "keywords": [
     "vite",
