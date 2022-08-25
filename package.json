@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-backend-hmr",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Support the component for HMR in back-end projects",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
