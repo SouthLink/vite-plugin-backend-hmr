@@ -15,11 +15,11 @@ pnpm i vite-plugin-backend-hmr -D
 ## Usage
 ```ts
 // vite.config.ts
-import viteReactbackendHmr from 'vite-plugin-backend-hmr';
+import ViteBackendHmrPlugin from 'vite-plugin-backend-hmr';
 
 export default {
   plugins: [
-    viteReactbackendHmr()
+    ViteBackendHmrPlugin()
   ]
 }
 ```
@@ -31,11 +31,11 @@ export default {
 ## Configure options example
 ```ts
 // vite.config.ts
-import viteReactbackendHmr from 'vite-plugin-backend-hmr';
+import ViteBackendHmrPlugin from 'vite-plugin-backend-hmr';
 
 export default {
   plugins: [
-    viteReactbackendHmr({
+    ViteBackendHmrPlugin({
       hmrFile: ['.tpl.php', '.blade.php']
       hmrDir: __dirname
     })

@@ -25,7 +25,7 @@ function normalizePath(id: string): string {
   return path.posix.normalize(isWindows ? slash(id) : id)
 }
 
-export default function ViteReactBackendHmrPlugin(
+export default function ViteBackendHmrPlugin(
   props?: IPluginProps,
 ): PluginOption {
   /**

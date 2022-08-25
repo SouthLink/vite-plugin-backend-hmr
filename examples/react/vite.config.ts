@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import viteReactbackendHmr from 'vite-plugin-backend-hmr';
+import ViteBackendHmrPlugin from 'vite-plugin-backend-hmr';
 
 const ASSET_URL = 'https://localhost:3009';
 
@@ -13,7 +13,7 @@ export default defineConfig({
   },
   plugins: [
     react(),
-    viteReactbackendHmr({
+    ViteBackendHmrPlugin({
       hmrDir: __dirname
     })
   ],

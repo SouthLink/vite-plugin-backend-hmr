@@ -8,7 +8,7 @@ function slash(p) {
 function normalizePath(id) {
   return path.posix.normalize(isWindows ? slash(id) : id);
 }
-function ViteReactBackendHmrPlugin(props) {
+function ViteBackendHmrPlugin(props) {
   const fetchUpdate = (file) => {
     const type = file.type === "js" ? "js-update" : "css-update";
     const parentPath = file.file ? path.relative((props == null ? void 0 : props.hmrDir) ?? __dirname, file.file) : "";
@@ -68,5 +68,5 @@ function ViteReactBackendHmrPlugin(props) {
   };
 }
 export {
-  ViteReactBackendHmrPlugin as default
+  ViteBackendHmrPlugin as default
 };

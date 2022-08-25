@@ -26,7 +26,7 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: tru
 // src/index.ts
 var src_exports = {};
 __export(src_exports, {
-  default: () => ViteReactBackendHmrPlugin
+  default: () => ViteBackendHmrPlugin
 });
 module.exports = __toCommonJS(src_exports);
 var import_path = __toESM(require("path"));
@@ -38,7 +38,7 @@ function slash(p) {
 function normalizePath(id) {
   return import_path.default.posix.normalize(isWindows ? slash(id) : id);
 }
-function ViteReactBackendHmrPlugin(props) {
+function ViteBackendHmrPlugin(props) {
   const fetchUpdate = (file) => {
     const type = file.type === "js" ? "js-update" : "css-update";
     const parentPath = file.file ? import_path.default.relative((props == null ? void 0 : props.hmrDir) ?? __dirname, file.file) : "";

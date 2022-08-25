@@ -4,6 +4,6 @@ interface IPluginProps {
     hmrFile?: string | string[];
     hmrDir?: string;
 }
-declare function ViteReactBackendHmrPlugin(props?: IPluginProps): PluginOption;
+declare function ViteBackendHmrPlugin(props?: IPluginProps): PluginOption;
 
-export { ViteReactBackendHmrPlugin as default };
+export { ViteBackendHmrPlugin as default };
