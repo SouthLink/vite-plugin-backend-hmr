@@ -74,11 +74,8 @@ export default function ViteReactBackendHmrPlugin(
         filterImporters.forEach((ii) => {
           const imports = Array.from(ii.importers);
 
-          if (ii.file && !deps?.[ii.file]) {
+          if (imports.length && ii.file && !deps?.[ii.file]) {
             deps[ii.file] = ii;
-          }
-
-          if (imports.length) {
             return recursiveUpdate(imports, server, deps);
           }
         });
