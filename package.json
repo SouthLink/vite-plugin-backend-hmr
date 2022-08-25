@@ -1,0 +1,54 @@
+{
+  "name": "vite-plugin-backend-hmr",
+  "version": "0.0.1",
+  "description": "Support the component for HMR in back-end projects",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "license": "MIT",
+  "author": "southlink",
+  "scripts": {
+    "dev": "pnpm run build -- --watch --ignore-watch examples",
+    "build": "tsup src/index.ts --dts --format cjs,esm",
+    "example:react": "cd examples/react && pnpm run dev"
+  },
+  "homepage": "https://github.com/SouthLink/vite-react-backend-hmr#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SouthLink/vite-react-backend-hmr.git"
+  },
+  "keywords": [
+    "vite",
+    "plugin"
+  ],
+  "packageManager": "pnpm@7.0.0",
+  "engines": {
+    "node": ">=14",
+    "pnpm": ">=7.0.0"
+  },
+  "dependencies": {
+    "esbuild": "^0.15.5",
+    "path": "^0.12.7",
+    "url": "^0.11.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.7.11",
+    "@typescript-eslint/eslint-plugin": "^5.34.0",
+    "@typescript-eslint/parser": "^5.34.0",
+    "bumpp": "^8.2.1",
+    "eslint": "^8.22.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.7.1",
+    "tsup": "^6.2.2",
+    "typescript": "^4.7.4",
+    "vite": "^3.0.9"
+  }
+}
