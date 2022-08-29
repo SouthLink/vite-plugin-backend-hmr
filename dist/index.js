@@ -63,9 +63,11 @@ function ViteBackendHmrPlugin(props) {
         );
         filterImporters.forEach((ii) => {
           const imports = Array.from(ii.importers);
-          if (imports.length && ii.file && !(deps == null ? void 0 : deps[ii.file])) {
+          if (ii.file && !(deps == null ? void 0 : deps[ii.file])) {
             deps[ii.file] = ii;
-            return recursiveUpdate(imports, server, deps);
+            if (imports.length) {
+              return recursiveUpdate(imports, server, deps);
+            }
           }
         });
       }
