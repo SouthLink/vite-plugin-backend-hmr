@@ -1,5 +1,7 @@
 # vite-plugin-backend-hmr
-support front-end component hmr in the back-end page. (example PHP file)
+Plugins that support normal hot updates in back-end projects
+
+In vite backend integration mode, HMR of sub-components may fail in some cases. This plug-in solves this problem and supports update watch of back-end files
 
 ## 📦 Install
 ```
