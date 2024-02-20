@@ -1,6 +1,9 @@
 # vite-plugin-backend-hmr
 Plugins that support normal hot updates in back-end projects
 
+[![NPM version](https://img.shields.io/npm/v/vite-plugin-backend-hmr.svg)](https://www.npmjs.com/package/vite-plugin-backend-hmr)
+[![NPM Downloads](https://badgen.net/npm/dt/vite-plugin-backend-hmr)](https://www.npmjs.com/package/vite-plugin-backend-hmr)
+
 ## feature
 
 #### 1. Enhance hmr 
@@ -21,9 +24,6 @@ the plug-in will monitor the change of the file, and trigger the update on the p
 
 #### 2. Fixed some problems in backend integration mode
 In vite backend integration mode, HMR of sub-components may fail in some cases. This plug-in solves this problem and supports update watch of back-end files
-
-[![NPM version](https://img.shields.io/npm/v/vite-plugin-backend-hmr.svg)](https://www.npmjs.com/package/vite-plugin-backend-hmr)
-[![NPM Downloads](https://badgen.net/npm/dt/vite-plugin-backend-hmr)](https://www.npmjs.com/package/vite-plugin-backend-hmr)
 
 ## 📦 Install
 ```

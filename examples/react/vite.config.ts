@@ -14,6 +14,7 @@ export default defineConfig({
   plugins: [
     react(),
     ViteBackendHmrPlugin({
+      hmrFile: ['.php'],
       hmrDir: __dirname
     })
   ],
