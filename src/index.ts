@@ -1,5 +1,7 @@
 import path from 'path';
 import os from 'node:os';
+import { fileURLToPath } from 'url';
+
 import type {
   PluginOption,
   HmrContext,
@@ -24,6 +26,9 @@ function slash(p: string): string {
 function normalizePath(id: string): string {
   return path.posix.normalize(isWindows ? slash(id) : id)
 }
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename); // fix to get __dirname working in ES module scope
 
 export default function ViteBackendHmrPlugin(
   props?: IPluginProps,
