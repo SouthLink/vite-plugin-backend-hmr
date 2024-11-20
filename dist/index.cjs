@@ -33,8 +33,10 @@ __export(src_exports, {
   default: () => ViteBackendHmrPlugin
 });
 module.exports = __toCommonJS(src_exports);
-var import_path = __toESM(require("path"));
-var import_node_os = __toESM(require("os"));
+var import_path = __toESM(require("path"), 1);
+var import_node_os = __toESM(require("os"), 1);
+var import_url = require("url");
+var import_meta = {};
 var isWindows = import_node_os.default.platform() === "win32";
 function slash(p) {
   return p.replace(/\\/g, "/");
@@ -42,11 +44,12 @@ function slash(p) {
 function normalizePath(id) {
   return import_path.default.posix.normalize(isWindows ? slash(id) : id);
 }
-var defaultHmrDir = process.cwd();
+var __filename = (0, import_url.fileURLToPath)(import_meta.url);
+var __dirname = import_path.default.dirname(__filename);
 function ViteBackendHmrPlugin(props) {
   const fetchUpdate = (file) => {
     const type = file.type === "js" ? "js-update" : "css-update";
-    const parentPath = file.file ? import_path.default.relative(props?.hmrDir ?? defaultHmrDir, file.file) : "";
+    const parentPath = file.file ? import_path.default.relative(props?.hmrDir ?? __dirname, file.file) : "";
     const filePath = normalizePath(`/${normalizePath(parentPath)}`);
     return {
       type,

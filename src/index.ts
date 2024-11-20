@@ -1,6 +1,5 @@
 import path from 'path';
 import os from 'node:os';
-import { fileURLToPath } from 'url';
 
 import type {
   PluginOption,
@@ -27,8 +26,7 @@ function normalizePath(id: string): string {
   return path.posix.normalize(isWindows ? slash(id) : id)
 }
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename); // fix to get __dirname working in ES module scope
+const defaultHmrDir = process.cwd(); 
 
 export default function ViteBackendHmrPlugin(
   props?: IPluginProps,
@@ -39,7 +37,7 @@ export default function ViteBackendHmrPlugin(
    */
   const fetchUpdate = (file: ModuleNode): Update => {
     const type = file.type === 'js' ? 'js-update' : 'css-update';
-    const parentPath = file.file ? path.relative(props?.hmrDir ?? __dirname, file.file) : '';
+    const parentPath = file.file ? path.relative(props?.hmrDir ?? defaultHmrDir, file.file) : '';
     const filePath = normalizePath(`/${normalizePath(parentPath)}`);
 
     return {

@@ -1,6 +1,6 @@
 // src/index.ts
 import path from "path";
-import os from "os";
+import os from "node:os";
 var isWindows = os.platform() === "win32";
 function slash(p) {
   return p.replace(/\\/g, "/");
@@ -8,10 +8,11 @@ function slash(p) {
 function normalizePath(id) {
   return path.posix.normalize(isWindows ? slash(id) : id);
 }
+var defaultHmrDir = process.cwd();
 function ViteBackendHmrPlugin(props) {
   const fetchUpdate = (file) => {
     const type = file.type === "js" ? "js-update" : "css-update";
-    const parentPath = file.file ? path.relative((props == null ? void 0 : props.hmrDir) ?? __dirname, file.file) : "";
+    const parentPath = file.file ? path.relative(props?.hmrDir ?? defaultHmrDir, file.file) : "";
     const filePath = normalizePath(`/${normalizePath(parentPath)}`);
     return {
       type,
@@ -33,7 +34,7 @@ function ViteBackendHmrPlugin(props) {
         );
         filterImporters.forEach((ii) => {
           const imports = Array.from(ii.importers);
-          if (ii.file && !(deps == null ? void 0 : deps[ii.file])) {
+          if (ii.file && !deps?.[ii.file]) {
             deps[ii.file] = ii;
             if (imports.length) {
               return recursiveUpdate(imports, server, deps);
@@ -56,7 +57,7 @@ function ViteBackendHmrPlugin(props) {
         type: "update",
         updates
       });
-      if (props == null ? void 0 : props.hmrFile) {
+      if (props?.hmrFile) {
         const { hmrFile } = props;
         const hmrWatchFile = !hmrFile ? [] : typeof hmrFile === "string" ? [hmrFile] : [...hmrFile];
         if (hmrWatchFile.length && hmrWatchFile.some((i) => file.endsWith(i))) {
